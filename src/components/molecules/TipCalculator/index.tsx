@@ -36,7 +36,7 @@ export const TipCalculator: React.FC<TipCalculatorProps> = ({
     [values]
   )
   return (
-    <FormContainer onRemove={() => null} title="3. Tip">
+    <FormContainer title="3. Tip">
       <div className="space-y-2">
         <FormInputItem
           value={values.tipPercentage}

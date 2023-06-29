@@ -40,7 +40,7 @@ export const SalesTaxCalculator: React.FC<SalesTaxCalculatorProps> = ({
   )
 
   return (
-    <FormContainer onRemove={() => null} title="1. Sales tax">
+    <FormContainer title="1. Sales tax">
       <div className="space-y-2">
         <FormInputItem
           value={values.amountBeforeTax}

@@ -1,5 +1,6 @@
 {
   "name": "react-ts-vite-eslint-prettier-tailwind",
+  "homepage": ".",
   "private": true,
   "version": "0.1.0",
   "scripts": {
@@ -7,7 +8,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint src --max-warnings=0",
-    "types": "tsc --project tsconfig.json --noEmit"
+    "types": "tsc --project tsconfig.json --noEmit",
+    "deploy-thirdweb": "yarn build && npx thirdweb@latest upload dist"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",

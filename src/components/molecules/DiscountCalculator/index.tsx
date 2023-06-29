@@ -38,7 +38,7 @@ export const DiscountCalculator: React.FC<DiscountCalculatorProps> = ({
   )
 
   return (
-    <FormContainer onRemove={() => null} title="2. Discount">
+    <FormContainer title="2. Discount">
       <div className="space-y-2">
         <FormInputItem
           value={values.discountPercentage.replaceAll(',', '')}

@@ -28,7 +28,7 @@ export const SplitBillCalculator: React.FC<SplitBillCalculatorProps> = ({
   )
 
   return (
-    <FormContainer onRemove={() => null} title="4. Split the bill">
+    <FormContainer title="4. Split the bill">
       <div className="space-y-2">
         <FormInputItem
           value={values.numberOfPerson}

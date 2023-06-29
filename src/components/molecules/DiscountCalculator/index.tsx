@@ -48,10 +48,7 @@ export const DiscountCalculator: React.FC<DiscountCalculatorProps> = ({
         />
         <FormStaticItem
           description="After discount"
-          value={formatValue({
-            value: values.discountedAmountAfterTax,
-            decimalScale: 2
-          })}
+          value={values.discountedAmountAfterTax}
         />
       </div>
     </FormContainer>

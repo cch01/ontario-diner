@@ -14,7 +14,11 @@ export const onAnyValueChanged = (
   reset: UseFormReset<FormInput>
 ) => {
   //NOTE: Hotfix for the library invoking onValueChange on blur
-  if (Number(changedValue) === Number(values[changedField])) return
+  if (
+    !changedValue.endsWith('.') &&
+    Number(changedValue) === Number(values[changedField])
+  )
+    return
 
   const { amountAfterTaxes, amountBeforeTax, fedTax, provTax } =
     getSalesTaxRelatedFields(changedField, changedValue, values)

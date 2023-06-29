@@ -29,9 +29,8 @@ export const SalesTaxCalculator: React.FC<SalesTaxCalculatorProps> = ({
       onAnyValueChanged(
         fieldName,
         formatValue({
-          value: val || '0',
-          decimalSeparator: '.',
-          decimalScale: 2
+          value: val,
+          decimalSeparator: '.'
         }),
         values,
         reset
@@ -52,22 +51,11 @@ export const SalesTaxCalculator: React.FC<SalesTaxCalculatorProps> = ({
         <Hr />
 
         <FormStaticItem description="Fed. tax(5%)" value={values.fedTax} />
-        <FormStaticItem
-          description="Prov. tax(8%)"
-          value={formatValue({
-            value: values.provTax.replaceAll(',', ''),
-            decimalSeparator: '.',
-            decimalScale: 2
-          })}
-        />
+        <FormStaticItem description="Prov. tax(8%)" value={values.provTax} />
         <Hr />
 
         <FormInputItem
-          value={formatValue({
-            value: values.amountAfterTaxes.replaceAll(',', ''),
-            decimalSeparator: '.',
-            decimalScale: 2
-          })}
+          value={values.amountAfterTaxes}
           onValueChange={getOnValueChange('amountAfterTaxes')}
           prefix="$ "
           description="After taxes"

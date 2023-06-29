@@ -26,7 +26,7 @@ export const TipCalculator: React.FC<TipCalculatorProps> = ({
       onAnyValueChanged(
         fieldName,
         formatValue({
-          value: val || '0',
+          value: val,
           decimalSeparator: '.'
         }),
         values,

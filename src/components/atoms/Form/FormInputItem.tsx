@@ -12,6 +12,7 @@ interface FormInputItemProps {
     name?: string | undefined,
     values?: CurrencyInputOnChangeValues | undefined
   ) => void
+  selectOnFocus?: boolean
 }
 export const FormInputItem: React.FC<FormInputItemProps> = ({
   suffix,
@@ -19,8 +20,12 @@ export const FormInputItem: React.FC<FormInputItemProps> = ({
   description,
   value,
   onValueChange,
-  decimalScale = 2
+  decimalScale = 2,
+  selectOnFocus = true
 }) => {
+  const handleFocus: React.FocusEventHandler<HTMLInputElement> = (e) =>
+    selectOnFocus && e.target.select()
+
   return (
     <div className="flex flex-row items-center justify-between">
       <div className="text-base text-secondary">{description}</div>
@@ -36,6 +41,7 @@ export const FormInputItem: React.FC<FormInputItemProps> = ({
         decimalSeparator="."
         groupSeparator=","
         decimalScale={decimalScale}
+        onFocus={handleFocus}
       />
     </div>
   )

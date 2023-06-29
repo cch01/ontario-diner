@@ -1,14 +1,10 @@
 import { Header } from 'components/atoms/Header'
 import { DiscountCalculator } from 'components/molecules/DiscountCalculator'
-import { DiscountCalculatorField } from 'components/molecules/DiscountCalculator/types'
 import { SalesTaxCalculator } from 'components/molecules/SalestaxCalculator'
-import { SalesTaxCalculatorField } from 'components/molecules/SalestaxCalculator/types'
 import { SplitBillCalculator } from 'components/molecules/SplitBillCalculator'
-import { SplitBillCalculatorField } from 'components/molecules/SplitBillCalculator/types'
 import { TipCalculator } from 'components/molecules/TipCalculator'
-import { TipCalculatorField } from 'components/molecules/TipCalculator/types'
 import { useMemo } from 'react'
-import { Control, useForm, useWatch } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { FormInput } from 'types'
 
 const defaultValues: FormInput = {
@@ -25,11 +21,11 @@ const defaultValues: FormInput = {
 }
 
 const App = () => {
-  const { reset, watch } = useForm<FormInput>({
+  const { reset, getValues } = useForm<FormInput>({
     defaultValues
   })
 
-  const values = useMemo(() => watch(), [watch()])
+  const values = useMemo(() => getValues(), [getValues()])
 
   return (
     <div className="flex h-full min-h-screen w-screen flex-col space-y-4 bg-bg-primary p-4">

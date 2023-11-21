@@ -17,6 +17,7 @@ const defaultValues: FormInput = {
   tipPercentage: '0',
   afterTip: '0',
   discountPercentage: '0',
+  onlyForSalesPrice: false,
   discountedAmountAfterTax: '0',
   numberOfPerson: '1',
   payPerPerson: '0'

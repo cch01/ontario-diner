@@ -27,10 +27,10 @@ export const Button: React.FC<ButtonProps> = memo(
       <button
         onClick={onClick}
         className={clsx(
-          `rounded-md border border-border p-2`,
+          `rounded-md border border-border p-2 transition-colors duration-75 ease-in`,
           isDisabled
             ? 'cursor-not-allowed bg-bg-alternative'
-            : 'bg-bg-tertiaryHover'
+            : 'hover:bg-bg-secondary'
         )}
       >
         {child}

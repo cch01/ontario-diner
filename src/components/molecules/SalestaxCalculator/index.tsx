@@ -39,8 +39,12 @@ export const SalesTaxCalculator: React.FC<SalesTaxCalculatorProps> = ({
     [values, reset]
   )
 
+  const onClearSection = useCallback(() => {
+    getOnValueChange('amountBeforeTax')('0')
+  }, [getOnValueChange])
+
   return (
-    <FormContainer title="1. Sales tax">
+    <FormContainer title="1. Sales tax" onClearSection={onClearSection}>
       <div className="space-y-2">
         <FormInputItem
           value={values.amountBeforeTax}

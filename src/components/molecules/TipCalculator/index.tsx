@@ -35,8 +35,13 @@ export const TipCalculator: React.FC<TipCalculatorProps> = ({
     },
     [reset, values]
   )
+
+  const onClearSection = useCallback(() => {
+    getOnValueChange('tipPercentage')('0')
+  }, [getOnValueChange])
+
   return (
-    <FormContainer title="3. Tip">
+    <FormContainer title="3. Tip" onClearSection={onClearSection}>
       <div className="space-y-2">
         <FormInputItem
           value={values.tipPercentage}

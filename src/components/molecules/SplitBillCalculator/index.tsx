@@ -2,7 +2,6 @@ import { FormContainer } from 'components/atoms/Form/FormContainer'
 import { FormInputItem } from 'components/atoms/Form/FormInputItem'
 import { FormStaticItem } from 'components/atoms/Form/FormStaticItem'
 import { useCallback } from 'react'
-import { formatValue } from 'react-currency-input-field'
 import { CurrencyInputOnChangeValues } from 'react-currency-input-field/dist/components/CurrencyInputProps'
 import { UseFormReset } from 'react-hook-form'
 import { FormInput } from 'types'
@@ -24,7 +23,7 @@ export const SplitBillCalculator: React.FC<SplitBillCalculatorProps> = ({
     (val) => {
       onAnyValueChanged(
         'numberOfPerson',
-        parseInt(val || '0').toString() || '0',
+        parseInt(val && parseInt(val) ? val : '1').toString() || '0',
         values,
         reset
       )
@@ -32,8 +31,12 @@ export const SplitBillCalculator: React.FC<SplitBillCalculatorProps> = ({
     [reset, values]
   )
 
+  const onClearSection = useCallback(() => {
+    onPersonCountChange('1')
+  }, [onPersonCountChange])
+
   return (
-    <FormContainer title="4. Split the bill">
+    <FormContainer title="4. Split the bill" onClearSection={onClearSection}>
       <div className="space-y-2">
         <FormInputItem
           value={values.numberOfPerson}

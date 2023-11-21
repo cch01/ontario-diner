@@ -37,8 +37,12 @@ export const DiscountCalculator: React.FC<DiscountCalculatorProps> = ({
     [values, reset]
   )
 
+  const onClearSection = useCallback(() => {
+    getOnValueChange('discountPercentage')('0')
+  }, [getOnValueChange])
+
   return (
-    <FormContainer title="2. Discount">
+    <FormContainer title="2. Discount" onClearSection={onClearSection}>
       <div className="space-y-2">
         <FormInputItem
           value={values.discountPercentage.replaceAll(',', '')}

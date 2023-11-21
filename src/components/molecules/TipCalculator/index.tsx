@@ -33,7 +33,7 @@ export const TipCalculator: React.FC<TipCalculatorProps> = ({
         reset
       )
     },
-    [values]
+    [reset, values]
   )
   return (
     <FormContainer title="3. Tip">

@@ -5,7 +5,7 @@ export const stringToPercentage = (value: string) =>
 
 export const numberToString = (val: number) =>
   formatValue({
-    value: val.toString() || '0',
+    value: (!isNaN(val) && val.toString()) || '0',
     decimalSeparator: '.',
     decimalScale: 2
   })

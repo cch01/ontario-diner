@@ -22,9 +22,14 @@ export const SplitBillCalculator: React.FC<SplitBillCalculatorProps> = ({
     currencyInputValues?: CurrencyInputOnChangeValues | undefined
   ) => void = useCallback(
     (val) => {
-      onAnyValueChanged('numberOfPerson', val || '0', values, reset)
+      onAnyValueChanged(
+        'numberOfPerson',
+        parseInt(val || '0').toString() || '0',
+        values,
+        reset
+      )
     },
-    [values]
+    [reset, values]
   )
 
   return (

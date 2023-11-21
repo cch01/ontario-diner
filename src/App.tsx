@@ -3,21 +3,20 @@ import { DiscountCalculator } from 'components/molecules/DiscountCalculator'
 import { SalesTaxCalculator } from 'components/molecules/SalestaxCalculator'
 import { SplitBillCalculator } from 'components/molecules/SplitBillCalculator'
 import { TipCalculator } from 'components/molecules/TipCalculator'
-import { useMemo } from 'react'
 import { useForm } from 'react-hook-form'
 import { FormInput } from 'types'
 
 const defaultValues: FormInput = {
-  amountBeforeTax: '176.99',
-  amountAfterTaxes: '200',
-  fedTax: '8.85',
-  provTax: '14.16',
-  tipPercentage: '15',
-  afterTip: '207',
-  discountPercentage: '10',
-  discountedAmountAfterTax: '180',
-  numberOfPerson: '3',
-  payPerPerson: '69'
+  amountBeforeTax: '0',
+  amountAfterTaxes: '0',
+  fedTax: '0',
+  provTax: '0',
+  tipPercentage: '0',
+  afterTip: '0',
+  discountPercentage: '0',
+  discountedAmountAfterTax: '0',
+  numberOfPerson: '1',
+  payPerPerson: '0'
 }
 
 const App = () => {
@@ -25,7 +24,7 @@ const App = () => {
     defaultValues
   })
 
-  const values = useMemo(() => getValues(), [getValues()])
+  const values = getValues()
 
   return (
     <div className="flex h-full min-h-screen w-screen flex-col space-y-4 bg-bg-primary p-4">

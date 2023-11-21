@@ -34,7 +34,7 @@ export const DiscountCalculator: React.FC<DiscountCalculatorProps> = ({
         reset
       )
     },
-    [values]
+    [values, reset]
   )
 
   return (

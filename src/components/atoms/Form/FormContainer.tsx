@@ -10,22 +10,27 @@ interface FormContainerProps {
   onClearSection?: () => void
   collapsible?: boolean
   defaultCollapsed?: boolean
+  getIsCollapsed?: (val: boolean) => void
 }
 export const FormContainer: React.FC<FormContainerProps> = ({
   title,
   onClearSection,
   children,
   collapsible,
-  defaultCollapsed
+  defaultCollapsed,
+  getIsCollapsed
 }) => {
   const [currentIsCollapsed, setCurrentIsCollapsed] = useState(defaultCollapsed)
 
   const onToggleCollapse = useCallback(
     (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
       e.preventDefault()
-      setCurrentIsCollapsed((val) => !val)
+      setCurrentIsCollapsed((val) => {
+        getIsCollapsed?.(!val)
+        return !val
+      })
     },
-    [setCurrentIsCollapsed]
+    [getIsCollapsed]
   )
 
   return (

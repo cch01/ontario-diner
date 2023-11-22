@@ -4,9 +4,14 @@ import React from 'react'
 interface ToggleProps {
   onToggle: (val?: boolean) => void
   value: boolean
+  disabled?: boolean
 }
 
-export const Toggle: React.FC<ToggleProps> = ({ onToggle, value }) => {
+export const Toggle: React.FC<ToggleProps> = ({
+  onToggle,
+  value,
+  disabled
+}) => {
   const buttonClasses = clsx(
     'peer',
     'h-6',
@@ -46,6 +51,7 @@ export const Toggle: React.FC<ToggleProps> = ({ onToggle, value }) => {
         type="checkbox"
         checked={value}
         className="peer sr-only"
+        disabled={disabled}
       />
       <div className={buttonClasses}></div>
     </label>

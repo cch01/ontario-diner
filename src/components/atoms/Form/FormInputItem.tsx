@@ -13,6 +13,7 @@ interface FormInputItemProps {
     values?: CurrencyInputOnChangeValues | undefined
   ) => void
   selectOnFocus?: boolean
+  disabled?: boolean
 }
 export const FormInputItem: React.FC<FormInputItemProps> = ({
   suffix,
@@ -21,7 +22,8 @@ export const FormInputItem: React.FC<FormInputItemProps> = ({
   value,
   onValueChange,
   decimalScale = 2,
-  selectOnFocus = true
+  selectOnFocus = true,
+  disabled
 }) => {
   const handleFocus: React.FocusEventHandler<HTMLInputElement> = (e) =>
     selectOnFocus && e.target.select()
@@ -42,6 +44,7 @@ export const FormInputItem: React.FC<FormInputItemProps> = ({
         groupSeparator=","
         decimalScale={decimalScale}
         onFocus={handleFocus}
+        disabled={disabled}
       />
     </div>
   )

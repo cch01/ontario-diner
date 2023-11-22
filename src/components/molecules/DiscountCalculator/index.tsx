@@ -2,7 +2,7 @@ import { FormContainer } from 'components/atoms/Form/FormContainer'
 import { FormInputItem } from 'components/atoms/Form/FormInputItem'
 import { FormStaticItem } from 'components/atoms/Form/FormStaticItem'
 import _isBoolean from 'lodash/isBoolean'
-import { useCallback } from 'react'
+import { useCallback, useState } from 'react'
 import { formatValue } from 'react-currency-input-field'
 import { CurrencyInputOnChangeValues } from 'react-currency-input-field/dist/components/CurrencyInputProps'
 import { UseFormReset } from 'react-hook-form'
@@ -19,6 +19,8 @@ export const DiscountCalculator: React.FC<DiscountCalculatorProps> = ({
   reset,
   values
 }) => {
+  const [isCollapsed, setIsCollapsed] = useState(true)
+
   const getOnValueChange: (
     fieldName:
       | 'discountPercentage'
@@ -69,6 +71,7 @@ export const DiscountCalculator: React.FC<DiscountCalculatorProps> = ({
       title="2. Discount"
       onClearSection={onClearSection}
       collapsible
+      getIsCollapsed={(val: boolean) => setIsCollapsed(val)}
       defaultCollapsed
     >
       <div className="space-y-2">
@@ -77,11 +80,13 @@ export const DiscountCalculator: React.FC<DiscountCalculatorProps> = ({
           onValueChange={getOnValueChange('discountPercentage')}
           description="Discount percentage"
           suffix=" %"
+          disabled={isCollapsed}
         />
         <FormToggle
           description="Only for sales price"
           onToggle={onToggleDiscountMode}
           value={values.onlyForSalesPrice}
+          disabled={isCollapsed}
         />
         <FormStaticItem
           description="After discount"

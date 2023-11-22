@@ -2,7 +2,7 @@ import { FormContainer } from 'components/atoms/Form/FormContainer'
 import { FormInputItem } from 'components/atoms/Form/FormInputItem'
 import { FormStaticItem } from 'components/atoms/Form/FormStaticItem'
 import _isBoolean from 'lodash/isBoolean'
-import { useCallback, useState } from 'react'
+import { useCallback } from 'react'
 import { formatValue } from 'react-currency-input-field'
 import { CurrencyInputOnChangeValues } from 'react-currency-input-field/dist/components/CurrencyInputProps'
 import { UseFormReset } from 'react-hook-form'
@@ -65,7 +65,12 @@ export const DiscountCalculator: React.FC<DiscountCalculatorProps> = ({
   }, [getOnValueChange, values.onlyForSalesPrice])
 
   return (
-    <FormContainer title="2. Discount" onClearSection={onClearSection}>
+    <FormContainer
+      title="2. Discount"
+      onClearSection={onClearSection}
+      collapsible
+      defaultCollapsed
+    >
       <div className="space-y-2">
         <FormInputItem
           value={values.discountPercentage.replaceAll(',', '')}

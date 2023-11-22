@@ -36,7 +36,12 @@ export const SplitBillCalculator: React.FC<SplitBillCalculatorProps> = ({
   }, [onPersonCountChange])
 
   return (
-    <FormContainer title="4. Split the bill" onClearSection={onClearSection}>
+    <FormContainer
+      title="4. Split the bill"
+      onClearSection={onClearSection}
+      collapsible
+      defaultCollapsed
+    >
       <div className="space-y-2">
         <FormInputItem
           value={values.numberOfPerson}

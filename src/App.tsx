@@ -31,6 +31,7 @@ const App = () => {
   const values = getValues()
 
   const onResetAll = useCallback(() => {
+    console.log('hihi')
     reset(defaultValues)
   }, [reset])
 

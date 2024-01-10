@@ -1,10 +1,10 @@
 import eslintPlugin from '@nabla/vite-plugin-eslint'
 import react from '@vitejs/plugin-react-swc'
 import path from 'path'
-import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import viteSvgr from 'vite-plugin-svgr'
 import tsconfigPaths from 'vite-tsconfig-paths'
+import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
   base: './',
@@ -57,5 +57,11 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src')
     }
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './testSetup.ts',
+    watch: false
   }
 })

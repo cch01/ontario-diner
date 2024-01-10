@@ -8,8 +8,10 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint src --max-warnings=0",
-    "types": "tsc --project tsconfig.json --noEmit",
-    "deploy-thirdweb": "yarn build && npx thirdweb@latest upload dist"
+    "types": "bash -c tsc --project ./tsconfig.json --noEmit",
+    "deploy-thirdweb": "yarn build && npx thirdweb@latest upload dist",
+    "test": "vitest --coverage",
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
@@ -26,6 +28,9 @@
   },
   "devDependencies": {
     "@nabla/vite-plugin-eslint": "^1.5.0",
+    "@testing-library/jest-dom": "^6.2.0",
+    "@testing-library/react": "^14.1.2",
+    "@testing-library/user-event": "^14.5.2",
     "@types/lodash": "^4.14.202",
     "@types/node": "^18.15.3",
     "@types/react": "^18.0.28",
@@ -33,6 +38,7 @@
     "@typescript-eslint/eslint-plugin": "^5.55.0",
     "@typescript-eslint/parser": "^5.55.0",
     "@vitejs/plugin-react-swc": "^3.2.0",
+    "@vitest/coverage-v8": "^1.1.3",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.7.0",
@@ -41,6 +47,8 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-tailwindcss": "^3.10.1",
+    "jsdom": "^23.2.0",
+    "lint-staged": "^15.2.0",
     "postcss": "^8.4.21",
     "prettier": "^2.8.4",
     "prettier-plugin-tailwindcss": "0.2.8",
@@ -51,6 +59,15 @@
     "vite-plugin-pwa": "^0.16.4",
     "vite-plugin-svgr": "^3.0.0",
     "vite-tsconfig-paths": "^4.0.7",
+    "vitest": "^1.1.3",
     "workbox-window": "^7.0.0"
+  },
+  "lint-staged": {
+    "*.@(ts|tsx)": [
+      "yarn lint --fix",
+      "yarn types"
+    ],
+    "*.{js,ts}": "eslint --cache --fix",
+    "*.+(js|ts|json|tsx|jsx)": "prettier --write"
   }
 }

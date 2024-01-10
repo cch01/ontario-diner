@@ -25,6 +25,7 @@ export const Button: React.FC<ButtonProps> = memo(
 
     return (
       <button
+        disabled={isDisabled}
         onClick={onClick}
         className={clsx(
           `rounded-md border border-border p-2 transition-colors duration-75 ease-in`,

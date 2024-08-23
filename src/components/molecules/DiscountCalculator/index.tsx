@@ -83,7 +83,7 @@ export const DiscountCalculator: React.FC<DiscountCalculatorProps> = ({
           disabled={isCollapsed}
         />
         <FormToggle
-          description="Only for sales price"
+          description="Discount with Tax"
           onToggle={onToggleDiscountMode}
           value={values.onlyForSalesPrice}
           disabled={isCollapsed}
